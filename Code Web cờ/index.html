@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đố Quốc Kỳ Thế Giới - 197 Quốc Gia</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%2232%22><text y=%2226%22 font-size=%2226%22>🚩</text></svg>">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-content">
+      <div class="logo-area">
+        <span class="logo-icon">🌍</span>
+        <h1 class="logo-title">Đố Quốc Kỳ Thế Giới</h1>
+      </div>
+
+      <div class="header-stats">
+        <div class="stat-badge coin-badge" title="Số xu hiện có (Đúng +5 xu, Sai -3 xu)">
+          <span>🪙</span>
+          <span id="header-coins">0</span>
+          <span>xu</span>
+        </div>
+        <div class="stat-badge unlocked-badge" title="Tiến độ mở khóa quốc kỳ">
+          <span>🚩</span>
+          <span id="header-unlocked">0/197</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTAINER CHÍNH -->
+  <main class="container">
+    <!-- NAVIGATION TABS -->
+    <nav class="nav-tabs">
+      <button class="nav-tab active" data-tab="quiz">
+        <span>🎮</span>
+        <span>Đố Cờ</span>
+      </button>
+      <button class="nav-tab" data-tab="collection">
+        <span>📖</span>
+        <span>Bộ Sưu Tập (197)</span>
+      </button>
+      <button class="nav-tab" data-tab="save-load">
+        <span>💾</span>
+        <span>Lưu & Tải Game</span>
+      </button>
+    </nav>
+
+    <!-- SECTION 1: ĐỐ CỜ -->
+    <section id="section-quiz" class="main-section active">
+      <div class="quiz-wrapper">
+        
+        <!-- THẺ LÁ CỜ -->
+        <div class="flag-display-card">
+          <div class="flag-box">
+            <div id="flag-skeleton" class="flag-skeleton"></div>
+            <img id="quiz-flag-img" src="" alt="Lá cờ quốc gia" />
+          </div>
+          <div class="quiz-instruction">Đây là quốc kỳ của quốc gia nào?</div>
+        </div>
+
+        <!-- NÚT TRỢ GIÚP BONUS -->
+        <div class="quiz-actions">
+          <button id="btn-bonus-5050" class="btn-bonus" title="Dùng 10 xu để loại bỏ ngay 2 đáp án sai">
+            <span>🎯</span>
+            <span>Loại bỏ 2 đáp án sai (-10 xu)</span>
+          </button>
+        </div>
+
+        <!-- 4 PHƯƠNG ÁN LỰA CHỌN -->
+        <div id="quiz-options" class="options-grid">
+          <!-- 4 nút trắc nghiệm được sinh tự động bằng game.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: BỘ SƯU TẬP 197 QUỐC KỲ -->
+    <section id="section-collection" class="main-section">
+      <!-- HEADER TIẾN ĐỘ -->
+      <div class="collection-header">
+        <div class="progress-info">
+          <span>Tiến độ khám phá: <span id="collection-count">0 / 197</span></span>
+          <span id="collection-percent">0.0%</span>
+        </div>
+        <div class="progress-bar">
+          <div id="collection-progress-fill" class="progress-fill"></div>
+        </div>
+
+        <!-- THANH TÌM KIẾM & BỘ LỌC CHÂU LỤC -->
+        <div class="collection-controls">
+          <div class="search-box">
+            <input type="text" id="search-country" placeholder="🔍 Tìm tên quốc gia, thủ đô..." />
+          </div>
+          <div class="filter-group">
+            <button class="filter-btn active" data-continent="all">Tất cả (197)</button>
+            <button class="filter-btn" data-continent="Châu Á">Châu Á</button>
+            <button class="filter-btn" data-continent="Châu Âu">Châu Âu</button>
+            <button class="filter-btn" data-continent="Châu Mỹ">Châu Mỹ</button>
+            <button class="filter-btn" data-continent="Châu Phi">Châu Phi</button>
+            <button class="filter-btn" data-continent="Châu Đại Dương">Châu Đại Dương</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- LƯỚI QUỐC KỲ -->
+      <div id="flags-grid" class="flags-grid">
+        <!-- Danh sách cờ render bằng collection.js -->
+      </div>
+    </section>
+
+    <!-- SECTION 3: LƯU & TẢI GAME -->
+    <section id="section-save-load" class="main-section">
+      <div class="save-load-wrapper">
+        
+        <!-- CARD 1: SAO CHÉP MÃ LƯU TRỮ -->
+        <div class="card-box">
+          <h2 class="card-title">
+            <span>📋</span>
+            <span>Mã Lưu Game (Save Code)</span>
+          </h2>
+          <p class="card-desc">
+            Dưới đây là chuỗi mã chứa toàn bộ số Xu và danh sách Quốc kỳ bạn đã mở khóa. Hãy sao chép chuỗi mã này để lưu lại hoặc dán vào trình duyệt/thiết bị khác để tiếp tục chơi!
+          </p>
+          <div class="code-field-group">
+            <input type="text" id="save-code-output" class="code-input" readonly value="" />
+            <button id="btn-copy-code" class="btn-action">
+              <span>📋</span>
+              <span>Sao chép mã</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 2: NẠP TIẾN TRÌNH TỪ MÃ -->
+        <div class="card-box">
+          <h2 class="card-title">
+            <span>🚀</span>
+            <span>Nạp Game Từ Mã (Load Code)</span>
+          </h2>
+          <p class="card-desc">
+            Dán chuỗi mã lưu game bạn đã sao chép trước đó vào ô dưới đây để khôi phục lại số xu và các quốc kỳ đã mở khóa.
+          </p>
+          <div class="code-field-group">
+            <input type="text" id="load-code-input" class="code-input" placeholder="Dán mã lưu game tại đây (ví dụ: FLAG-...)" />
+            <button id="btn-load-code" class="btn-action">
+              <span>📥</span>
+              <span>Nạp Game</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 3: ĐẶT LẠI TRÒ CHƠI -->
+        <div class="card-box" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h3 style="font-size: 1rem; margin-bottom: 4px;">Đặt lại trò chơi</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Xóa toàn bộ số xu và quốc kỳ đã mở khóa để chơi lại từ đầu.</p>
+          </div>
+          <button id="btn-reset-game" class="btn-danger">
+            <span>🔄 Chơi lại từ đầu</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL XEM CHI TIẾT QUỐC KỲ ĐÃ MỞ KHÓA -->
+  <div id="country-modal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <button id="country-modal-close" class="modal-close-btn" title="Đóng">&times;</button>
+      <div class="modal-flag-large">
+        <img id="modal-flag-img" src="" alt="Quốc kỳ chi tiết" />
+      </div>
+      <div class="modal-info-list">
+        <div class="info-item">
+          <span class="info-label">Quốc gia (Tiếng Việt)</span>
+          <span id="modal-country-name" class="info-val">Việt Nam</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Tên quốc tế (English)</span>
+          <span id="modal-country-name-en" class="info-val">Vietnam</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Thủ đô</span>
+          <span id="modal-country-capital" class="info-val">Hà Nội</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Châu lục</span>
+          <span id="modal-country-continent" class="info-val">Châu Á</span>
+        </div>
+      </div>
+      <a id="modal-wiki-link" class="modal-wiki-btn" href="#" target="_blank" rel="noopener noreferrer">
+        🌐 Đọc thêm thông tin trên Wikipedia
+      </a>
+    </div>
+  </div>
+
+  <!-- CONTAINER HIỆU ỨNG THÔNG BÁO & PHÁO HOA -->
+  <div id="toast-container" class="toast-container"></div>
+  <div id="confetti-container" class="confetti-container"></div>
+
+  <!-- SCRIPTS -->
+  <script src="js/countries.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/collection.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
